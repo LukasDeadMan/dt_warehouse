@@ -1,0 +1,24 @@
+{% extends 'admin/app_index.html' %}
+{% block content %}
+
+    <h1>Estatísticas Alunos</h1>
+
+    <table>
+        <tr>
+            <td>Sexo</td>
+            <td>Qtd. Alunos</td>
+        </tr>
+        {% for aluno_sexo in alunos_sexo %}
+        <tr>
+            <td>{{ alunos_sexo.sexo_descricao }}</td>
+            <td>{{ alunos_sexo.total }}</td>
+        </tr>
+
+
+        {% endfor %}
+
+
+    </table>
+
+
+{% endblock %}
