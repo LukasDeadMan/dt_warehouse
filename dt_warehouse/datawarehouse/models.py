@@ -1,5 +1,6 @@
 from django.db import models
 
+from django.db.models import Count
 
 # Create your models here.
 class Sexo(models.Model):
@@ -44,3 +45,8 @@ class Aluno(models.Model):
     origemEscolar = models.ForeignKey(OrigemEscolar, on_delete=models.CASCADE, blank=True, null=True)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE, blank=True, null=True)
     campus = models.ForeignKey(Campus, on_delete=models.CASCADE, blank=True, null=True)
+
+    @staticmethod
+    def get_list(string):
+        return Aluno.objects.all().values(string). \
+            annotate(total=Count('*')).order_by(string)

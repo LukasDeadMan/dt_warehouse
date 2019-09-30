@@ -35,7 +35,6 @@ class Command(BaseCommand):
                 # TRANSFORMAÇÃO E PREPARAÇÃO DE DADOS PARA INJETAR NO DATAWAREHOUSE
                 campus_nome = campus_nome.title()
 
-
                 # INSERT DOS DADOS NA TABELA DO DATAWAREHOUSE
                 obj, created = Campus.objects.update_or_create(
                     nome = campus_nome

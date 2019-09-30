@@ -3,22 +3,101 @@
 
     <h1>Estatísticas Alunos</h1>
 
+    <br>
+    <br>
+
+    <h2>Quantidade de Alunos por Etnia</h2>
     <table>
         <tr>
-            <td>Sexo</td>
-            <td>Qtd. Alunos</td>
+            <th>Etnia</th>
+            {% for aluno_etnia in alunos_etnia %}
+                <th>{{ aluno_etnia.etnia__descricao }}</th>
+            {% endfor %}
         </tr>
-        {% for aluno_sexo in alunos_sexo %}
         <tr>
-            <td>{{ alunos_sexo.sexo_descricao }}</td>
-            <td>{{ alunos_sexo.total }}</td>
+            <td>Qtd. Alunos</td>
+            {% for aluno_etnia in alunos_etnia %}
+                <td>{{ aluno_etnia.total }}</td>
+            {% endfor %}
         </tr>
+    </table>
+    <img src="data:image/png;base64,{{ grafico_etnia|safe }}">
+
+    <br>
+    <br>
 
 
-        {% endfor %}
-
-
+    <h2>Quantidade de Alunos por Origem Escolar</h2>
+    <table>
+        <tr>
+            <th>Origem Escolar</th>
+            {% for aluno_origemEscolar in alunos_origemEscolar %}
+                <th>{{ aluno_origemEscolar.origemEscolar__descricao }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Qtd. Alunos</td>
+            {% for aluno_origemEscolar in alunos_origemEscolar %}
+                <td>{{ aluno_origemEscolar.total }}</td>
+            {% endfor %}
+        </tr>
     </table>
 
+    <img src="data:image/png;base64,{{ grafico_origemEscolar|safe }}">
 
+    <br>
+    <br>
+
+    <h2>Quantidade de Alunos por Sexo</h2>
+    <table>
+        <tr>
+            <th>Sexo</th>
+            {% for aluno_sexo in alunos_sexo %}
+                <th>{{ aluno_sexo.sexo__descricao }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Qtd. Alunos</td>
+            {% for aluno_sexo in alunos_sexo %}
+                <td>{{ aluno_sexo.total }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+    <img src="data:image/png;base64,{{ grafico_sexo|safe }}">
+
+    <br>
+    <br>
+
+    <h2>Quantidade de Alunos por Campus</h2>
+    <table>
+        <tr>
+            <th>Campus</th>
+            <th>Qtd. Alunos</th>
+        </tr>
+        {% for aluno_campus in alunos_campus %}
+            <tr>
+                <td>{{ aluno_campus.campus__nome }}</td>
+                <td>{{ aluno_campus.total }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <img src="data:image/png;base64,{{ grafico_campus|safe }}">
+
+    <br>
+    <br>
+
+
+    <h2>Quantidade de Alunos por Curso</h2>
+    <table>
+        <tr>
+            <th>Curso</th>
+            <th>Qtd. Alunos</th>
+        </tr>
+        {% for aluno_curso in alunos_curso %}
+            <tr>
+                <td>{{ aluno_curso.curso__nome }}</td>
+                <td>{{ aluno_curso.total }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

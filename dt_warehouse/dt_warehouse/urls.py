@@ -21,6 +21,7 @@ from datawarehouse import views as vw_index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', vw_index.index)
+    path('', vw_index.index),
 ]
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

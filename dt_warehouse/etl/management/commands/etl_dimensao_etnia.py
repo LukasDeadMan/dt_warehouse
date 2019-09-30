@@ -26,7 +26,6 @@ class Command(BaseCommand):
         conta_atualizados = 0
         if len(dados) > 0:
             for d in dados:
-                print(d)
                 etnia_descricao = d[0]
 
 
